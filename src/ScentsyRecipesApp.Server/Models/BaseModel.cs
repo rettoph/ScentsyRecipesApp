@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,6 +18,19 @@ namespace ScentsyRecipesApp.Server.Models
         /// The unique identifier & primary key.
         /// </summary>
         public Int32 Id { get; set; }
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Build a new <see cref="BaseModel"/> instance from 
+        /// recieved <see cref="SqlDataReader"/> data passed 
+        /// via <paramref name="reader"/>.
+        /// </summary>
+        /// <param name="reader"></param>
+        protected BaseModel(SqlDataReader reader)
+        {
+            this.Id = Convert.ToInt32(reader["Id"]);
+        }
         #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -36,6 +37,20 @@ namespace ScentsyRecipesApp.Server.Models
         /// will be used instead.
         /// </summary>
         public UnitOfMeasurement UnitOfMeasurement { get; set; }
+        #endregion
+
+
+        #region Constructors
+        /// <summary>
+        /// Build a new <see cref="Recipe"/> instance from 
+        /// recieved <see cref="Ingredient"/> data passed 
+        /// via <paramref name="reader"/>.
+        /// </summary>
+        /// <param name="reader"></param>
+        public RecipeIngredient(SqlDataReader reader) : base(reader)
+        {
+
+        }
         #endregion
     }
 }

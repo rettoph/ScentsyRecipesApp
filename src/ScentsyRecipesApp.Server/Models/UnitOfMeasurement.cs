@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ScentsyRecipesApp.Server.Extensions.System.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -32,6 +34,25 @@ namespace ScentsyRecipesApp.Server.Models
         [StringLength(5, ErrorMessage = "Measurement abbreviation should be less than or equal to five characters.")]
         [RegularExpression(@"\w+", ErrorMessage = "Measurement abbreviation may only contain alpha numeric characters.")]
         public String Abbreviation { get; set; }
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Build a new <see cref="UnitOfMeasurement"/> instance from 
+        /// recieved <see cref="SqlDataReader"/> data passed 
+        /// via <paramref name="reader"/>.
+        /// </summary>
+        /// <param name="reader"></param>
+        public UnitOfMeasurement(SqlDataReader reader) : base(reader)
+        {
+            this.FullName = Convert.ToString(reader["FullName"]);
+            this.Abbreviation = Convert.ToString(reader["Abbreviation"]);
+        }
+        #endregion
+
+        #region Data Layer
+        public static IEnumerable<UnitOfMeasurement> GetAll(SqlConnection con)
+            => con.Select<UnitOfMeasurement>("SELECT * FROM UnitOfMeasurements;");
         #endregion
     }
 }

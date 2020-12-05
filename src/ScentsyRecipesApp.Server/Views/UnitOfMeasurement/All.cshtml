@@ -1,0 +1,6 @@
+﻿@model IEnumerable<UnitOfMeasurement>
+@foreach(UnitOfMeasurement unit in Model)
+{
+    <h1>@unit.FullName</h1>
+    <p>@unit.Abbreviation</p>
+}

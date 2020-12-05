@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,11 +17,6 @@ namespace ScentsyRecipesApp.Server.Models
     public class Ingredient : BaseModel
     {
         #region Public Properties
-        /// <summary>
-        /// A unique 
-        /// </summary>
-        public Int32 Id { get; set; }
-
         /// <summary>
         /// A custom human readable nameof the current
         /// <see cref="Ingredient"/>
@@ -38,6 +34,19 @@ namespace ScentsyRecipesApp.Server.Models
         /// </summary>
         [Required(ErrorMessage = "Set Ingredient's Default Unit of Measurement.")]
         public UnitOfMeasurement DefaultUnitOfMeasurement { get; set; }
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// Build a new <see cref="Recipe"/> instance from 
+        /// recieved <see cref="Ingredient"/> data passed 
+        /// via <paramref name="reader"/>.
+        /// </summary>
+        /// <param name="reader"></param>
+        public Ingredient(SqlDataReader reader) : base(reader)
+        {
+
+        }
         #endregion
     }
 }

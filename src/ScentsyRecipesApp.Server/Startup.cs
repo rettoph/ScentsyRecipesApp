@@ -4,8 +4,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ScentsyRecipesApp.Server.Endpoints;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,6 +26,9 @@ namespace ScentsyRecipesApp.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<SqlConnection>(
+                p => new SqlConnection(
+                    connectionString: Environment.GetEnvironmentVariable("DATABASE_CONNECTION_STRING")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,12 +51,7 @@ namespace ScentsyRecipesApp.Server
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseEndpoints(WebEndpoints.Configure);
         }
     }
 }
