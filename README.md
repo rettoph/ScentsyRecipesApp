@@ -1,12 +1,14 @@
 
+
 ## Setup
 Create a Microsoft SQL Server & import the [`recipe.sql`](https://github.com/rettoph/ScentsyRecipesApp/blob/master/recipe.sql) file. This will create the required tables and a single example recipe (I highly recommend this recipe as it is delicious).
 
 To setup the web server's Microsoft SQL Server connection just edit the [`src/ScentsyRecipesApp.Server/Properties/launchSettings.json`](https://github.com/rettoph/ScentsyRecipesApp/blob/master/src/ScentsyRecipesApp.Server/Properties/launchSettings.json) file and add a `DATABASE_CONNECTION_STRING` environment variable to your profile. There is an example included with this project in the `IIS Express` profile.
 
-Note, due to some design choices the connection string must contain [`MultipleActiveResultSets=true;`](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/enabling-multiple-active-result-sets)
- as seen in the example. If this is not included the server will not function as expected.
+Note, due to some design choices the connection string **must** contain [`MultipleActiveResultSets=true;`](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/enabling-multiple-active-result-sets) as seen in the example. If this is not included the server will not function as expected.
  
+A live demo of this application can be viewed here: [http://scentsy.rettoph.io/](http://scentsy.rettoph.io/) (I'll probably keep this up for a week or two, after that this'll be a dead link).
+
  ## Info
 You might notice there are 2 projects included within this project. [`ScentsyRecipesApp.Server`](https://github.com/rettoph/ScentsyRecipesApp/tree/master/src/ScentsyRecipesApp.Server) and [`ScentsyRecipesApp.Library`](https://github.com/rettoph/ScentsyRecipesApp/tree/master/src/ScentsyRecipesApp.Library). Here is a short overview of the purpose behind each project.
 

@@ -9,10 +9,10 @@
     <thead>
         <tr>
             <th scope="col">Name</th>
-            <th scope="col">Feeds</th>
-            <th scope="col">Time</th>
-            <th scope="col">Steps</th>
-            <th scope="col">Ingredients</th>
+            <th scope="col" class="d-none d-lg-table-cell">Feeds</th>
+            <th scope="col" class="d-none d-lg-table-cell">Time</th>
+            <th scope="col" class="d-none d-lg-table-cell">Steps</th>
+            <th scope="col" class="d-none d-lg-table-cell">Ingredients</th>
             <th scope="col">Actions</th>
         </tr>
     </thead>
@@ -23,10 +23,10 @@
             {
                 <tr>
                     <td>@r.Name</td>
-                    <td>@r.Feeds</td>
-                    <td>@r.Time</td>
-                    <td>@r.Steps.Count()</td>
-                    <td>@r.Ingredients.Count()</td>
+                    <td class="d-none d-lg-table-cell">@r.Feeds</td>
+                    <td class="d-none d-lg-table-cell">@r.Time</td>
+                    <td class="d-none d-lg-table-cell">@r.Steps.Count()</td>
+                    <td class="d-none d-lg-table-cell">@r.Ingredients.Count()</td>
                     <td>
                         <a class="text-info"
                            href="/@r.Id">View</a> |

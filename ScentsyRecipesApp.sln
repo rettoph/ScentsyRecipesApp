@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{90D6528B-F2E5-4CC0-8BE6-B7B9612B1A21}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		recipe.sql = recipe.sql
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScentsyRecipesApp.Server", "src\ScentsyRecipesApp.Server\ScentsyRecipesApp.Server.csproj", "{D6A13476-4D16-48AB-8860-F3B10F295FB1}"
