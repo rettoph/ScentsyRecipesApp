@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 namespace ScentsyRecipesApp.Library
 {
     /// <summary>
-    /// A base model conataining default implementation
-    /// used by all custom models within the current 
-    /// WebApp.
+    /// A simple scaffold containing default implementation
+    /// & required method used by all custom models within the 
+    /// current WebApp. Most interfacing is done within the
+    /// <see cref="ModelContext{TModel}"/> class.
     /// </summary>
     public abstract class BaseModel : IDisposable
     {
