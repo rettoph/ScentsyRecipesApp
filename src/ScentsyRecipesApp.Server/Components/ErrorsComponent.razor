@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+@code {
+
+    [Parameter] public ModelErrorCollection Errors { get; set; }
+    [Parameter] public String Method { get; set; }
+}
+
+@if (this.Method == "POST" && this.Errors != default)
+{
+    @foreach (var error in this.Errors)
+    {
+        <div class="error text-danger">*@error.ErrorMessage</div>
+    }
+}

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Ingredient>
+
+<h1>Ingredients | <a class="text-info" href="/Ingredients/Create">Create</a></h1>
+<p>All Ingredients that may be used within a recipe. More may be created on the fly when building a recipe, so this page is primarily to demonstrate full CRUD functionality.</p>
+
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            @foreach (Ingredient i in Model)
+            {
+                <tr>
+                    <td>@i.Id</td>
+                    <td>@i.Name</td>
+                    <td>
+                        <a class="text-info"
+                           href="/Ingredients/@i.Id/Edit">Edit</a> |
+                        <a class="text-danger"
+                           href="/Ingredients/@i.Id/Delete">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4" class="text-center">There dont appear to be any ingredients types yet. Click <a class="text-info" href="/Ingredients/Create">here</a> to create one now.</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -13,7 +13,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "DATABASE_CONNECTION_STRING": "Server=DESKTOP-5UFRFJ8\\SQLEXPRESS;Database=recipe;User Id=scentsy;Password=password;"
+        "DATABASE_CONNECTION_STRING": "MultipleActiveResultSets=true;Server=DESKTOP-5UFRFJ8\\SQLEXPRESS;Database=recipe;User Id=scentsy;Password=password;"
       }
     },
     "ScentsyRecipesApp.Server": {

@@ -10,7 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScentsyRecipesApp.Server", "src\ScentsyRecipesApp.Server\ScentsyRecipesApp.Server.csproj", "{D6A13476-4D16-48AB-8860-F3B10F295FB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScentsyRecipesApp.Server", "src\ScentsyRecipesApp.Server\ScentsyRecipesApp.Server.csproj", "{D6A13476-4D16-48AB-8860-F3B10F295FB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScentsyRecipesApp.Library", "src\ScentsyRecipesApp.Library\ScentsyRecipesApp.Library.csproj", "{E1F96E87-7E11-484A-993E-CE57C3440618}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,12 +24,17 @@ Global
 		{D6A13476-4D16-48AB-8860-F3B10F295FB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6A13476-4D16-48AB-8860-F3B10F295FB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6A13476-4D16-48AB-8860-F3B10F295FB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1F96E87-7E11-484A-993E-CE57C3440618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1F96E87-7E11-484A-993E-CE57C3440618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1F96E87-7E11-484A-993E-CE57C3440618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1F96E87-7E11-484A-993E-CE57C3440618}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D6A13476-4D16-48AB-8860-F3B10F295FB1} = {406DD5D6-FEEE-4DEB-A907-F175C19C555F}
+		{E1F96E87-7E11-484A-993E-CE57C3440618} = {406DD5D6-FEEE-4DEB-A907-F175C19C555F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A0C5C809-ED5E-44D5-865B-3852151634C0}

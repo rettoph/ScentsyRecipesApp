@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using ScentsyRecipesApp.Library;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +17,7 @@ namespace ScentsyRecipesApp.Server.Models
     /// within <see cref="RecipeIngredient"/>s when
     /// creating new <see cref="Recipe"/>.
     /// </summary>
+    [Table("Ingredients")]
     public class Ingredient : BaseModel
     {
         #region Public Properties
@@ -21,31 +25,25 @@ namespace ScentsyRecipesApp.Server.Models
         /// A custom human readable nameof the current
         /// <see cref="Ingredient"/>
         /// </summary>
-        [Required(ErrorMessage = "Enter Ingredient Name")]
-        [StringLength(15, ErrorMessage = "Ingredient name should be less than or equal to fifteen characters.")]
+        [Required(ErrorMessage = "Name required.")]
+        [StringLength(150, ErrorMessage = "Name should be less than or equal to 150 characters.")]
+        [Column("Name")]
         public String Name { get; set; }
-
-        /// <summary>
-        /// The default unit to be used with this
-        /// particular ingredient within a
-        /// <see cref="RecipeIngredient"/>
-        /// if an ovveride is node defined by
-        /// <see cref="RecipeIngredient.UnitOfMeasurement"/>.
-        /// </summary>
-        [Required(ErrorMessage = "Set Ingredient's Default Unit of Measurement.")]
-        public UnitOfMeasurement DefaultUnitOfMeasurement { get; set; }
         #endregion
 
-        #region Constructors
-        /// <summary>
-        /// Build a new <see cref="Recipe"/> instance from 
-        /// recieved <see cref="Ingredient"/> data passed 
-        /// via <paramref name="reader"/>.
-        /// </summary>
-        /// <param name="reader"></param>
-        public Ingredient(SqlDataReader reader) : base(reader)
+        #region Helper Methods
+        /// <inheritdoc />
+        protected override void Read(SqlDataReader reader)
         {
+            base.Read(reader);
 
+            this.Name = Convert.ToString(reader["Name"]);
+        }
+
+        /// <inheritdoc />
+        public override void Read(IFormCollection form)
+        {
+            this.Name = form["Name"];
         }
         #endregion
     }

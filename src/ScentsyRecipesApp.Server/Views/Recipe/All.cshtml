@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Recipe>
+
+<h1>Recipes | <a class="text-info" href="/Create">Create</a></h1>
+<p>All Recipes that have been created so far.</p>
+
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Feeds</th>
+            <th scope="col">Time</th>
+            <th scope="col">Steps</th>
+            <th scope="col">Ingredients</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            @foreach (Recipe r in Model)
+            {
+                <tr>
+                    <td>@r.Name</td>
+                    <td>@r.Feeds</td>
+                    <td>@r.Time</td>
+                    <td>@r.Steps.Count()</td>
+                    <td>@r.Ingredients.Count()</td>
+                    <td>
+                        <a class="text-info"
+                           href="/@r.Id">View</a> |
+                        <a class="text-info"
+                           href="/@r.Id/Edit">Edit</a> |
+                        <a class="text-danger"
+                           href="/@r.Id/Delete">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4" class="text-center">There dont appear to be any recipes types yet. Click <a class="text-info" href="/Create">here</a> to create one now.</td>
+            </tr>
+        }
+    </tbody>
+</table>

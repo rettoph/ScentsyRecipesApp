@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MeasurementType>
+
+<h1>Measurement Types | <a class="text-info" href="/MeasurementTypes/Create">Create</a></h1>
+<p>Describes how ingredients may be measured.</p>
+
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Abbreviation</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            @foreach(MeasurementType mt in Model)
+            {
+                <tr>
+                    <td>@mt.Id</td>
+                    <td>@mt.Name</td>
+                    <td>@mt.Abbreviation</td>
+                    <td>
+                        <a
+                           class="text-info"
+                           href="/MeasurementTypes/@mt.Id/Edit"
+                        >Edit</a> |
+                        <a
+                           class="text-danger"
+                           href="/MeasurementTypes/@mt.Id/Delete"
+                        >Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4" class="text-center">There dont appear to be any measurement types yet. Click <a class="text-info" href="/MeasurementTypes/Create">here</a> to create one now.</td>
+            </tr>
+        }
+    </tbody>
+</table>

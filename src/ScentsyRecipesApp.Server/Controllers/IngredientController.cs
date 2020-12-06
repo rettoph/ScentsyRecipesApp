@@ -10,34 +10,25 @@ using System.Threading.Tasks;
 
 namespace ScentsyRecipesApp.Server.Controllers
 {
-    [Route("")]
-    public class RecipeController : Controller
+    [Route("Ingredients")]
+    public class IngredientController : Controller
     {
         #region Private Fields
-        private ModelContext<Recipe> _recipes;
-        private ModelContext<RecipeIngredient> _recipeIngredients;
+        private ModelContext<Ingredient> _ingredients;
         #endregion
 
         #region Constructors
-        public RecipeController(
-            ModelContext<Recipe> recipes,
-            ModelContext<RecipeIngredient> recipeIngredients)
+        public IngredientController(
+            ModelContext<Ingredient> ingredients)
         {
-            _recipes = recipes;
-            _recipeIngredients = recipeIngredients;
+            _ingredients = ingredients;
         }
         #endregion
 
         [Route("")]
         public IActionResult All()
         {
-            return View(_recipes.All());
-        }
-
-        [Route("{id}")]
-        public IActionResult View(Int32 id)
-        {
-            return View(_recipes.GetById(id));
+            return View(_ingredients.All());
         }
 
         [Route("Create")]
@@ -45,28 +36,29 @@ namespace ScentsyRecipesApp.Server.Controllers
         public IActionResult EditOrCreate(Int32 id = default, IFormCollection form = default)
         {
             // Load the measurement type to be edited or create a new one...
-            var recipe = _recipes.GetByIdOrDefault(id);
+            var ingredient = _ingredients.GetByIdOrDefault(id);
 
             if (this.Request.Method == "POST")
             { // If the page was just submitted...
-                recipe.Read(form);
+                ingredient.Read(form);
 
-                if (this.TryValidateModel(recipe))
+                if (this.TryValidateModel(ingredient))
                 { // If the model's new values are valid...
-                    _recipes.UpdateOrInsert(recipe);
-                    return Redirect($"/");
+                    _ingredients.UpdateOrInsert(ingredient);
+                    return Redirect($"/Ingredients");
                 }
             }
 
-            return View("EditOrCreate", recipe);
+            return View("EditOrCreate", ingredient);
         }
 
         [Route("{id}/Delete")]
         public IActionResult Delete(Int32 id)
         {
-            _recipes.Delete(_recipes.GetById(id));
+            // Load the instance then delete it...
+            _ingredients.Delete(_ingredients.GetById(id));
 
-            return Redirect("/");
+            return Redirect("/Ingredients");
         }
     }
 }

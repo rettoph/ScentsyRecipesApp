@@ -1,0 +1,28 @@
+﻿@using ScentsyRecipesApp.Server.Components;
+@using ScentsyRecipesApp.Server.Extensions.Microsoft.AspNetCore.Mvc;
+
+@model MeasurementType
+
+<h1>@(Model.Real ? "Edit" : "Create") Measurement Type</h1>
+
+<br />
+
+<form method="post">
+    @Html.RenderInputComponent(
+        modelStateEntry: ViewContext.ModelState["Name"],
+        name: "Name",
+        value: Model.Name,
+        placeholder: "Enter name",
+        helpText: "A human readable name for your unit of measurement.",
+        method: Context.Request.Method)
+
+    @Html.RenderInputComponent(
+        modelStateEntry: ViewContext.ModelState["Abbreviation"],
+        name: "Abbreviation",
+        value: Model.Abbreviation,
+        placeholder: "Enter abbreviation",
+        helpText: "A short abbreviation for your unit of measurement.",
+        method: Context.Request.Method)
+
+    <button type="submit" class="btn btn-primary">@(Model.Real ? "Save" : "Create")</button>
+</form>

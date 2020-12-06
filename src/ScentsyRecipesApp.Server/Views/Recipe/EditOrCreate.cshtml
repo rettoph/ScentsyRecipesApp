@@ -1,0 +1,54 @@
+﻿@using Newtonsoft.Json;
+@using ScentsyRecipesApp.Server.Extensions.Microsoft.AspNetCore.Mvc;
+
+@model Recipe
+
+<form method="post">
+    <div class="general-container recipe-container">
+        <h2>General</h2>
+        @Html.RenderInputComponent(
+            modelStateEntry: ViewContext.ModelState["Name"],
+            name: "Name",
+            value: Model.Name,
+            placeholder: "Enter name",
+            helpText: "A human readable name for your recipe.",
+            method: Context.Request.Method)
+
+        @Html.RenderInputComponent(
+            modelStateEntry: ViewContext.ModelState["Feeds"],
+            name: "Feeds",
+            value: Model.Feeds.ToString(),
+            placeholder: "Enter feeds",
+            helpText: "The amount of people this recipe will feed.",
+            method: Context.Request.Method)
+
+        @Html.RenderInputComponent(
+            modelStateEntry: ViewContext.ModelState["Time"],
+            name: "Time",
+            value: Model.Time,
+            placeholder: "Enter time",
+            helpText: "The time this recipe will take.",
+            method: Context.Request.Method)
+    </div>
+
+    <div class="ingredients-container recipe-container">
+        <h2>Ingredients</h2>
+        <p>Create a list of all ingredients required by your recipe.</p>
+        <div id="ingredients" class="row"></div>
+
+        <input type="button" class="btn btn-outline-secondary" onclick="javascript: NewIngredient()" value="New Ingredient" />
+    </div>
+
+    <div class="steps-container recipe-container">
+        <h2>Steps</h2>
+        <p>Define the steps to your recipe here.</p>
+        <div id="steps" class="row"></div>
+
+        <input type="button" class="btn btn-outline-secondary" onclick="javascript: NewStep()" value="New Step" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">@(Model.Real ? "Save" : "Create")</button>
+</form>
+
+<script>window.InputRecipe=@Html.Raw(JsonConvert.SerializeObject(Model))</script>
+<script src="~/js/recipe-builder.js" asp-append-version="true"></script>

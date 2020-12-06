@@ -1,0 +1,19 @@
+﻿@using ScentsyRecipesApp.Server.Extensions.Microsoft.AspNetCore.Mvc;
+
+@model Ingredient
+
+<h1>@(Model.Real ? "Edit" : "Create") Ingredient</h1>
+
+<br />
+
+<form method="post">
+    @Html.RenderInputComponent(
+        modelStateEntry: ViewContext.ModelState["Name"],
+        name: "Name",
+        value: Model.Name,
+        placeholder: "Enter name",
+        helpText: "A human readable name for your ingredient.",
+        method: Context.Request.Method)
+
+    <button type="submit" class="btn btn-primary">@(Model.Real ? "Save" : "Create")</button>
+</form>

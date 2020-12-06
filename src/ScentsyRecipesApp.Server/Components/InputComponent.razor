@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+@code {
+    /// <summary>
+    /// The current attribute's state.
+    /// </summary>
+    [Parameter] public ModelStateEntry ModelStateEntry { get; set; }
+
+    /// <summary>
+    /// The name of the current attribute to be rendered.
+    /// </summary>
+    [Parameter] public String Name { get; set; }
+
+    /// <summary>
+    /// The input type to be created.
+    /// </summary>
+    [Parameter] public String Type { get; set; } = "text";
+
+    /// <summary>
+    /// The current input's value.
+    /// </summary>
+    [Parameter] public String Value { get; set; }
+
+    /// <summary>
+    /// The input's placeholder value
+    /// </summary>
+    [Parameter] public String Placeholder { get; set; } = "";
+
+    /// <summary>
+    /// The input's help text
+    /// </summary>
+    [Parameter] public String HelpText { get; set; } = "";
+
+    /// <summary>
+    /// The http request method
+    /// </summary>
+    [Parameter] public String Method { get; set; }
+}
+
+<div class="form-group">
+    <label for="exampleInputEmail1">@this.Name</label>
+    <ErrorsComponent Errors="@this.ModelStateEntry?.Errors" Method="@this.Method"></ErrorsComponent>
+    <input type="@this.Type" class="form-control" id="@this.Name" name="@this.Name" aria-describedby="@this.Name-help" placeholder="@this.Placeholder" value="@this.Value" step="0.01">
+    <small id="@this.Name-help" class="form-text text-muted">@this.HelpText</small>
+</div>
