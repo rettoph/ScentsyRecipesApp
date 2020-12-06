@@ -1,6 +1,6 @@
 
 ## Setup
-Create a Microsoft SQL Server & import the [`recipe.sql`](https://github.com/rettoph/ScentsyRecipesApp/blob/master/recipe.sql) file. This will create the required tables and a single example recipe (I highly recommend this recipe as it is delicious).
+Create a Microsoft SQL Server Database & import the [`recipe.sql`](https://github.com/rettoph/ScentsyRecipesApp/blob/master/recipe.sql) file. This will create the required tables and a single example recipe (I highly recommend this recipe as it is delicious).
 
 To setup the web server's Microsoft SQL Server connection just edit the [`src/ScentsyRecipesApp.Server/Properties/launchSettings.json`](https://github.com/rettoph/ScentsyRecipesApp/blob/master/src/ScentsyRecipesApp.Server/Properties/launchSettings.json) file and add a `DATABASE_CONNECTION_STRING` environment variable to your profile. There is an example included with this project in the `IIS Express` profile.
 
@@ -31,7 +31,7 @@ Fulfill the following user stories using whichever library or APIs you need:
 -   **User Story:** I can create recipes that have names and ingredients.
 -   **User Story:** I can see an index view where the names of all the recipes are visible.
 -   **User Story:** I can click into any of those recipes to view details about the recipe.
--   **User Story:** I can edit the recipes’ information and ingredients.
+-   **User Story:** I can edit the recipesâ€™ information and ingredients.
 -   **User Story:** I can delete the recipes.
 
 ## WishList
