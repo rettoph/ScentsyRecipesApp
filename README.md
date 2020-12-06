@@ -10,7 +10,7 @@ Note, due to some design choices the connection string **must** contain [`Multip
 A live demo of this application can be viewed here: [http://scentsy.rettoph.io/](http://scentsy.rettoph.io/) (I'll probably keep this up for a week or two, after that this'll be a dead link).
 
  ## Info
-You might notice there are 2 projects included within this project. [`ScentsyRecipesApp.Server`](https://github.com/rettoph/ScentsyRecipesApp/tree/master/src/ScentsyRecipesApp.Server) and [`ScentsyRecipesApp.Library`](https://github.com/rettoph/ScentsyRecipesApp/tree/master/src/ScentsyRecipesApp.Library). Here is a short overview of the purpose behind each project.
+You might notice there are 2 projects included within this solution. [`ScentsyRecipesApp.Server`](https://github.com/rettoph/ScentsyRecipesApp/tree/master/src/ScentsyRecipesApp.Server) and [`ScentsyRecipesApp.Library`](https://github.com/rettoph/ScentsyRecipesApp/tree/master/src/ScentsyRecipesApp.Library). Here is a short overview of the purpose behind each project.
 
 [**`ScentsyRecipesApp.Server`**](https://github.com/rettoph/ScentsyRecipesApp/tree/master/src/ScentsyRecipesApp.Server)
 This is the primary web server, and should be executed when viewing this code. It contains all primary Models, Views, & Controllers.
