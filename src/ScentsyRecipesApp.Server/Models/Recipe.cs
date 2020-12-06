@@ -16,7 +16,7 @@ namespace ScentsyRecipesApp.Server.Models
     /// <see cref="RecipeIngredient"/>, contain steps,
     /// and more.
     /// </summary>
-    [Table("Recipe")]
+    [Table("Recipes")]
     public class Recipe : BaseModel
     {
         #region Private Fields

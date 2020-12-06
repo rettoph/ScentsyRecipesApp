@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Update="wwwroot\js\site - Copy.min.js">
       <DependentUpon>site.min.js</DependentUpon>
     </Content>
