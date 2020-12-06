@@ -15,7 +15,7 @@ if (typeof window.InputRecipe !== "undefined")
     var Steps = window.InputRecipe.Steps ?? [];
     var MeasurementTypeDropdowns = [];
     var MeasurementTypes = null;
-    fetch("https://localhost:44324/api/measurement-types")
+    fetch("/api/measurement-types")
         .then(r => r.json())
         .then(data => {
             // Save the api data...
