@@ -1,27 +1,28 @@
 ﻿@model Recipe
 
 <div class="container">
-   <div class="title-container row">
-        <div class="row">
-            <div class="col-12">
-                <h1>@Model.Name</h1>
-                <p>Feeds: @Model.Feeds | Time: @Model.Time | <a href="/" class="text-info">Back</a></p>
-                <hr />
-            </div>
+    <div class="title-container row">
+        <div class="col-12">
+            <h1>@Model.Name</h1>
+            <p>Feeds: @Model.Feeds | Time: @Model.Time | <a href="/" class="text-info">Back</a></p>
+            <hr />
         </div>
     </div>
 
-   <div class="ingredients-container row">
-       <div class="col-12">
-           <h2>Ingredients</h2>
-       </div>
+    <div class="ingredients-container row">
+        <div class="col-12">
+            <h2>Ingredients</h2>
+        </div>
 
-       @foreach (RecipeIngredient ingredient in Model.Ingredients)
-       {
-           <div class="col-md-6">• @ingredient.Ingredient.Name (@ingredient.Amount @ingredient.MeasurementType.Name)</div>
-       }
-
-   </div>
+        <div class="col-12">
+            <ul class="row">
+                @foreach (RecipeIngredient ingredient in Model.Ingredients)
+                {
+                    <li class="col-md-6">@ingredient.Ingredient.Name (@ingredient.Amount @ingredient.MeasurementType.Name)</li>
+                }
+            </ul>
+        </div>
+    </div>
 
     <br />
 

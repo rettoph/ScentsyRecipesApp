@@ -107,3 +107,7 @@ body {
 ol li {
     padding: 5px;
 }
+
+ul.row {
+    margin: 0!important;
+}
