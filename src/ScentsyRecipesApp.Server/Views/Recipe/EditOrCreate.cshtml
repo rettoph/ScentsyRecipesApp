@@ -20,7 +20,8 @@
             value: Model.Feeds.ToString(),
             placeholder: "Enter feeds",
             helpText: "The amount of people this recipe will feed.",
-            method: Context.Request.Method)
+            method: Context.Request.Method,
+            type: "number")
 
         @Html.RenderInputComponent(
             modelStateEntry: ViewContext.ModelState["Time"],

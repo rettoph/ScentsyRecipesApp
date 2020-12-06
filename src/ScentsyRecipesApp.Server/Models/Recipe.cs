@@ -124,7 +124,7 @@ namespace ScentsyRecipesApp.Server.Models
         public override void Read(IFormCollection form)
         {
             this.Name  = form["Name"];
-            this.Feeds = Int32.Parse(form["Feeds"]);
+            this.Feeds = Int32.Parse(new String(form["Feeds"].First().Where(c => char.IsDigit(c)).ToArray()));
             this.Time  = form["Time"];
 
             #region Ingredients

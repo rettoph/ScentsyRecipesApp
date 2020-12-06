@@ -30,7 +30,8 @@ namespace ScentsyRecipesApp.Server.Extensions.Microsoft.AspNetCore.Mvc
             String value,
             String placeholder,
             String helpText,
-            String method)
+            String method,
+            String type = "text")
         {
             return html.RenderComponentAsync<InputComponent>(
                 RenderMode.ServerPrerendered,
@@ -41,7 +42,8 @@ namespace ScentsyRecipesApp.Server.Extensions.Microsoft.AspNetCore.Mvc
                     Value = value ?? "",
                     Placeholder = placeholder,
                     HelpText = helpText,
-                    Method = method
+                    Method = method,
+                    Type = type
                 }).GetAwaiter().GetResult();
         }
     }
